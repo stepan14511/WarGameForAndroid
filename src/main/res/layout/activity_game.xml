@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game"
+    tools:context=".GameActivity"
     android:padding="10dp"
     android:background="#669900"
     android:orientation="horizontal">
@@ -16,18 +16,18 @@
         android:orientation="vertical"
         android:layout_alignParentLeft="true">
 
-        <ImageView android:id="@+id/imgButton_opponent_card"
+        <ImageView android:id="@+id/imgView_opponent_card"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:src="@drawable/card_back"/>
 
-        <ImageView android:id="@+id/imgButton_player_card"
+        <ImageView android:id="@+id/imgView_player_card"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginTop="10dp"
-            android:src="@drawable/card_101"/>
+            android:src="@drawable/card_back"/>
 
     </LinearLayout>
 
