@@ -1,8 +1,8 @@
 package com.example.stepa.war;
 
 public class Card {
-    int numberOfPriority, suit;
-    boolean isClear;
+    private int numberOfPriority, suit;
+    private boolean isClear;
 
     Card(boolean isClear){
         this.isClear = isClear;
