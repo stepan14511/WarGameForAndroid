@@ -2,16 +2,27 @@ package com.example.stepa.war;
 
 public class Card {
     int numberOfPriority, suit;
+    boolean isClear;
 
-    Card(int NumberOfPriority, int suit) throws IllegalArgumentException{
-        if((NumberOfPriority < 0) || (NumberOfPriority > 12) || (suit < 0) || (suit > 3)){
+    Card(boolean isClear){
+        this.isClear = isClear;
+        this.numberOfPriority = -1;
+        this.suit = -1;
+    }
+
+    Card(int numberOfPriority, int suit) throws IllegalArgumentException{
+        if((numberOfPriority < 0) || (numberOfPriority > 12) || (suit < 0) || (suit > 3)){
             throw new IllegalArgumentException();
         }
-        this.numberOfPriority = NumberOfPriority;
+        this.numberOfPriority = numberOfPriority;
         this.suit = suit;
     }
 
-    private int findIdOfCardImage(int NumberOfPriority, int suit){
+    private int findIdOfCardImage(int numberOfPriority, int suit){
+        if(isClear){
+            return R.drawable.card_back;
+        }
+
         int cardImageIds[][] = new int[][]{
                 {R.drawable.card_101, R.drawable.card_102, R.drawable.card_103, R.drawable.card_104,
                 R.drawable.card_105, R.drawable.card_106, R.drawable.card_107, R.drawable.card_108,
@@ -30,7 +41,7 @@ public class Card {
                 R.drawable.card_409, R.drawable.card_410, R.drawable.card_411, R.drawable.card_412,
                 R.drawable.card_413}};
 
-        return cardImageIds[suit][NumberOfPriority];
+        return cardImageIds[suit][numberOfPriority];
     }
 
     public boolean IsBetterThan(Card card){
