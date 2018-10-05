@@ -45,7 +45,7 @@ public class Card {
         return cardImageIds[suit][numberOfPriority];
     }
 
-    public boolean IsBetterThan(Card card){
+    public boolean isBetterThan(Card card){
         if((this.numberOfPriority == 0) && (card.numberOfPriority == 12))
             return true;
         if((this.numberOfPriority == 12) && (card.numberOfPriority == 0))
