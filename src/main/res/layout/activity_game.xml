@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity"
+    android:padding="10dp"
+    android:background="#669900"
+    android:orientation="horizontal">
+
+    <LinearLayout android:id="@+id/linearLayout_cards"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true">
+
+        <ImageView android:id="@+id/imgView_opponent_card"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_points"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView android:id="@+id/textView_opponent_points"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="26"
+            android:textSize="50sp" />
+
+        <TextView android:id="@+id/textView_player_points"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:text="26"
+            android:textSize="50sp"/>
+
+    </LinearLayout>
+</LinearLayout>
