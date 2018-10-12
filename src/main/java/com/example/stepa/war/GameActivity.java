@@ -19,7 +19,7 @@ public class GameActivity extends Activity {
 
         clearCard(true); clearCard(false);
         setOnClickListeners();
-        opponentPoints = 1; playerPoints = 1; updateState();
+        opponentPoints = 26; playerPoints = 26; updateState();
 
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
@@ -78,9 +78,6 @@ public class GameActivity extends Activity {
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
         opponentCard = new Card(randomPriority, randomSuit);
-
-        opponentPoints = 1;
-        playerPoints = 1;
 
         imgView.setOnClickListener(new View.OnClickListener(){
             @Override
