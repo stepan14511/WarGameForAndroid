@@ -43,26 +43,52 @@ public class GameActivity extends Activity {
         imgViewPl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int randomPriority = new Random().nextInt(13);
-                int randomSuit = new Random().nextInt(4);
-                playerCard = new Card(randomPriority, randomSuit);
-                updateState();
-
-                if(!opponentCard.isEqual(playerCard)) {
-                    if (opponentCard.isBetterThan(playerCard)) {
-                        opponentPoints += 1;
-                        playerPoints -= 1;
-                    }
-                    else{
-                        opponentPoints -= 1;
-                        playerPoints += 1;
-                    }
-                    updateState();
-                }
-
-                imgViewPl.setOnClickListener(null);
+                onClickOnClosedCard(imgViewPl);
             }
         });
+    }
+
+    private void onClickOnClosedCard(final ImageView imgView){
+        int randomPriority = new Random().nextInt(13);
+        int randomSuit = new Random().nextInt(4);
+        playerCard = new Card(randomPriority, randomSuit);
+
+        if(!opponentCard.isEqual(playerCard)) {
+            if (opponentCard.isBetterThan(playerCard)) {
+                opponentPoints += 1;
+                playerPoints -= 1;
+            }
+            else{
+                opponentPoints -= 1;
+                playerPoints += 1;
+            }
+        }
+
+        imgView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onClickOnOpenedCard(imgView);
+            }
+        });
+        updateState();
+    }
+
+    private void onClickOnOpenedCard(final ImageView imgView){
+        clearCard(false);
+        int randomPriority = new Random().nextInt(13);
+        int randomSuit = new Random().nextInt(4);
+        opponentCard = new Card(randomPriority, randomSuit);
+
+        opponentPoints = 1;
+        playerPoints = 1;
+
+        imgView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onClickOnClosedCard(imgView);
+            }
+        });
+        updateState();
     }
 
     private void clearCard(boolean isOpponent){
