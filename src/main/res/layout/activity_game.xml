@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity"
     android:padding="10dp"
-    android:background="#939600">
+    android:background="@color/game_background_default">
 
     <LinearLayout android:id="@+id/linearLayout_cards"
         android:layout_width="wrap_content"
@@ -56,9 +56,9 @@
     <TextView android:id="@+id/textView_win_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WIN"
+        android:text="@string/message_win"
         android:layout_centerInParent="true"
         android:textSize="100sp"
-        android:textColor="#00FF00"/>
+        android:textColor="@color/green"/>
 
 </RelativeLayout>
