@@ -1,9 +1,11 @@
 package com.example.stepa.war;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -19,11 +21,14 @@ public class GameActivity extends Activity {
 
         clearCard(true); clearCard(false);
         setOnClickListeners();
-        opponentPoints = 26; playerPoints = 26; updateState();
+        opponentPoints = 5; playerPoints = 4;
 
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
         opponentCard = new Card(randomPriority, randomSuit);
+
+        TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+        winMessage.setVisibility(View.INVISIBLE);
         updateState();
     }
 
@@ -49,6 +54,13 @@ public class GameActivity extends Activity {
     }
 
     private void onClickOnClosedCard(final ImageView imgView){
+        imgView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                onClickOnOpenedCard(imgView);
+            }
+        });
+
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
         playerCard = new Card(randomPriority, randomSuit);
@@ -57,19 +69,56 @@ public class GameActivity extends Activity {
             if (opponentCard.isBetterThan(playerCard)) {
                 opponentPoints += 1;
                 playerPoints -= 1;
+                if(playerPoints <= 0){
+                    TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+                    winMessage.setVisibility(View.VISIBLE);
+                    winMessage.setTextColor(getResources().getColor(R.color.red));
+                    winMessage.setText(R.string.message_lose);
+                    imgView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    RelativeLayout fullScreenView = (RelativeLayout) findViewById(R.id.fullScreenView);
+                    fullScreenView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
             }
             else{
                 opponentPoints -= 1;
                 playerPoints += 1;
+                if(opponentPoints <= 0){
+                    TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+                    winMessage.setVisibility(View.VISIBLE);
+                    winMessage.setTextColor(getResources().getColor(R.color.green));
+                    winMessage.setText(R.string.message_win);
+                    imgView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    RelativeLayout fullScreenView = (RelativeLayout) findViewById(R.id.fullScreenView);
+                    fullScreenView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
             }
         }
-
-        imgView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                onClickOnOpenedCard(imgView);
-            }
-        });
         updateState();
     }
 
@@ -91,11 +140,9 @@ public class GameActivity extends Activity {
     private void clearCard(boolean isOpponent){
         if(isOpponent){
             opponentCard = new Card(true);
-            updateState();
         }
         else{
             playerCard = new Card(true);
-            updateState();
         }
     }
 }
