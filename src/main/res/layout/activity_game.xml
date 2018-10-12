@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/fullScreenView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity"
     android:padding="10dp"
-    android:background="#669900"
-    android:orientation="horizontal">
+    android:background="@color/game_background_default">
 
     <LinearLayout android:id="@+id/linearLayout_cards"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="4"
-        android:orientation="vertical"
-        android:layout_alignParentLeft="true">
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:orientation="vertical">
 
         <ImageView android:id="@+id/imgView_opponent_card"
             android:layout_width="wrap_content"
@@ -31,10 +30,11 @@
     </LinearLayout>
 
     <LinearLayout android:id="@+id/linearLayout_points"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp">
 
         <TextView android:id="@+id/textView_opponent_points"
             android:layout_width="wrap_content"
@@ -52,4 +52,13 @@
             android:textSize="50sp"/>
 
     </LinearLayout>
-</LinearLayout>
+
+    <TextView android:id="@+id/textView_win_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/message_win"
+        android:layout_centerInParent="true"
+        android:textSize="100sp"
+        android:textColor="@color/green"/>
+
+</RelativeLayout>

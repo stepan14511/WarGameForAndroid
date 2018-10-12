@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">War</string>
+    <string name="message_win">WIN</string>
+    <string name="message_lose">LOSE</string>
+    <string name="button_continue">Continue</string>
+    <string name="button_play">Play</string>
+    <string name="button_results">Results</string>
+    <string name="button_settings">Settings</string>
 </resources>

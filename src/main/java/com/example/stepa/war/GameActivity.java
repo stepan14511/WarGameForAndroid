@@ -1,9 +1,11 @@
 package com.example.stepa.war;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -18,24 +20,18 @@ public class GameActivity extends Activity {
         setContentView(R.layout.activity_game);
 
         clearCard(true); clearCard(false);
-        setOnClickListeners();
-        opponentPoints = 1; playerPoints = 1; updateState();
+        opponentPoints = 26; playerPoints = 26;
+        opponentCard = generateCard();
 
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        opponentCard = new Card(randomPriority, randomSuit);
+        startInitElements();
         updateState();
     }
 
-    private void updateState(){
-        ImageView imgViewOp = (ImageView) findViewById(R.id.imgView_opponent_card);
-        imgViewOp.setImageResource(opponentCard.getIdOfCardImage());
-        ImageView imgViewPl = (ImageView) findViewById(R.id.imgView_player_card);
-        imgViewPl.setImageResource(playerCard.getIdOfCardImage());
-        TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
-        txtViewOp.setText(("" + opponentPoints).toCharArray(), 0, ("" + opponentPoints).toCharArray().length);
-        TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
-        txtViewPl.setText(("" + playerPoints).toCharArray(), 0, ("" + playerPoints).toCharArray().length);
+    private void startInitElements(){
+        TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+        winMessage.setVisibility(View.INVISIBLE);
+
+        setOnClickListeners();
     }
 
     private void setOnClickListeners(){
@@ -49,38 +45,74 @@ public class GameActivity extends Activity {
     }
 
     private void onClickOnClosedCard(final ImageView imgView){
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        playerCard = new Card(randomPriority, randomSuit);
-
-        if(!opponentCard.isEqual(playerCard)) {
-            if (opponentCard.isBetterThan(playerCard)) {
-                opponentPoints += 1;
-                playerPoints -= 1;
-            }
-            else{
-                opponentPoints -= 1;
-                playerPoints += 1;
-            }
-        }
-
         imgView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 onClickOnOpenedCard(imgView);
             }
         });
+        playerCard = generateCard();
+
+        if(!opponentCard.isEqual(playerCard)) {
+            if (opponentCard.isBetterThan(playerCard)) {
+                opponentPoints += 1;
+                playerPoints -= 1;
+                if(playerPoints <= 0){
+                    TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+                    winMessage.setVisibility(View.VISIBLE);
+                    winMessage.setTextColor(getResources().getColor(R.color.red));
+                    winMessage.setText(R.string.message_lose);
+                    imgView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    RelativeLayout fullScreenView = (RelativeLayout) findViewById(R.id.fullScreenView);
+                    fullScreenView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+            }
+            else{
+                opponentPoints -= 1;
+                playerPoints += 1;
+                if(opponentPoints <= 0){
+                    TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+                    winMessage.setVisibility(View.VISIBLE);
+                    winMessage.setTextColor(getResources().getColor(R.color.green));
+                    winMessage.setText(R.string.message_win);
+                    imgView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    RelativeLayout fullScreenView = (RelativeLayout) findViewById(R.id.fullScreenView);
+                    fullScreenView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(GameActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+            }
+        }
         updateState();
     }
 
     private void onClickOnOpenedCard(final ImageView imgView){
         clearCard(false);
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        opponentCard = new Card(randomPriority, randomSuit);
-
-        opponentPoints = 1;
-        playerPoints = 1;
+        opponentCard = generateCard();
 
         imgView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -91,14 +123,29 @@ public class GameActivity extends Activity {
         updateState();
     }
 
+    private Card generateCard(){
+        int randomPriority = new Random().nextInt(13);
+        int randomSuit = new Random().nextInt(4);
+        return new Card(randomPriority, randomSuit);
+    }
+
     private void clearCard(boolean isOpponent){
         if(isOpponent){
             opponentCard = new Card(true);
-            updateState();
         }
         else{
             playerCard = new Card(true);
-            updateState();
         }
+    }
+
+    private void updateState(){
+        ImageView imgViewOp = (ImageView) findViewById(R.id.imgView_opponent_card);
+        imgViewOp.setImageResource(opponentCard.getIdOfCardImage());
+        ImageView imgViewPl = (ImageView) findViewById(R.id.imgView_player_card);
+        imgViewPl.setImageResource(playerCard.getIdOfCardImage());
+        TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
+        txtViewOp.setText(("" + opponentPoints).toCharArray(), 0, ("" + opponentPoints).toCharArray().length);
+        TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
+        txtViewPl.setText(("" + playerPoints).toCharArray(), 0, ("" + playerPoints).toCharArray().length);
     }
 }
