@@ -20,27 +20,18 @@ public class GameActivity extends Activity {
         setContentView(R.layout.activity_game);
 
         clearCard(true); clearCard(false);
-        setOnClickListeners();
         opponentPoints = 26; playerPoints = 26;
+        opponentCard = generateCard();
 
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        opponentCard = new Card(randomPriority, randomSuit);
-
-        TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
-        winMessage.setVisibility(View.INVISIBLE);
+        startInitElements();
         updateState();
     }
 
-    private void updateState(){
-        ImageView imgViewOp = (ImageView) findViewById(R.id.imgView_opponent_card);
-        imgViewOp.setImageResource(opponentCard.getIdOfCardImage());
-        ImageView imgViewPl = (ImageView) findViewById(R.id.imgView_player_card);
-        imgViewPl.setImageResource(playerCard.getIdOfCardImage());
-        TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
-        txtViewOp.setText(("" + opponentPoints).toCharArray(), 0, ("" + opponentPoints).toCharArray().length);
-        TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
-        txtViewPl.setText(("" + playerPoints).toCharArray(), 0, ("" + playerPoints).toCharArray().length);
+    private void startInitElements(){
+        TextView winMessage = (TextView) findViewById(R.id.textView_win_message);
+        winMessage.setVisibility(View.INVISIBLE);
+
+        setOnClickListeners();
     }
 
     private void setOnClickListeners(){
@@ -60,10 +51,7 @@ public class GameActivity extends Activity {
                 onClickOnOpenedCard(imgView);
             }
         });
-
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        playerCard = new Card(randomPriority, randomSuit);
+        playerCard = generateCard();
 
         if(!opponentCard.isEqual(playerCard)) {
             if (opponentCard.isBetterThan(playerCard)) {
@@ -124,9 +112,7 @@ public class GameActivity extends Activity {
 
     private void onClickOnOpenedCard(final ImageView imgView){
         clearCard(false);
-        int randomPriority = new Random().nextInt(13);
-        int randomSuit = new Random().nextInt(4);
-        opponentCard = new Card(randomPriority, randomSuit);
+        opponentCard = generateCard();
 
         imgView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -137,6 +123,12 @@ public class GameActivity extends Activity {
         updateState();
     }
 
+    private Card generateCard(){
+        int randomPriority = new Random().nextInt(13);
+        int randomSuit = new Random().nextInt(4);
+        return new Card(randomPriority, randomSuit);
+    }
+
     private void clearCard(boolean isOpponent){
         if(isOpponent){
             opponentCard = new Card(true);
@@ -144,5 +136,16 @@ public class GameActivity extends Activity {
         else{
             playerCard = new Card(true);
         }
+    }
+
+    private void updateState(){
+        ImageView imgViewOp = (ImageView) findViewById(R.id.imgView_opponent_card);
+        imgViewOp.setImageResource(opponentCard.getIdOfCardImage());
+        ImageView imgViewPl = (ImageView) findViewById(R.id.imgView_player_card);
+        imgViewPl.setImageResource(playerCard.getIdOfCardImage());
+        TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
+        txtViewOp.setText(("" + opponentPoints).toCharArray(), 0, ("" + opponentPoints).toCharArray().length);
+        TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
+        txtViewPl.setText(("" + playerPoints).toCharArray(), 0, ("" + playerPoints).toCharArray().length);
     }
 }
