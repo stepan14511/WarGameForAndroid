@@ -21,7 +21,7 @@ public class GameActivity extends Activity {
 
         clearCard(true); clearCard(false);
         setOnClickListeners();
-        opponentPoints = 5; playerPoints = 4;
+        opponentPoints = 26; playerPoints = 26;
 
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
