@@ -60,8 +60,4 @@ public class Card {
     public int getIdOfCardImage(){
         return findIdOfCardImage(this.numberOfPriority, this.suit);
     }
-
-    public boolean isClearCard(){
-        return isClear;
-    }
 }
