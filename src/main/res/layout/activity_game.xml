@@ -8,19 +8,593 @@
     android:padding="10dp"
     android:background="@color/game_background_default">
 
-    <LinearLayout android:id="@+id/linearLayout_cards"
+    <LinearLayout android:id="@+id/linearLayout_cards0"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_toLeftOf="@id/linearLayout_points"
         android:orientation="vertical">
 
-        <ImageView android:id="@+id/imgView_opponent_card"
+        <ImageView android:id="@+id/imgView_opponent_card0"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:src="@drawable/card_back"/>
 
-        <ImageView android:id="@+id/imgView_player_card"
+        <ImageView android:id="@+id/imgView_player_card0"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards5"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards6"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card6"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card6"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards7"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards8"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card8"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card8"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards9"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card9"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card9"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards10"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card10"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card10"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards11"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card11"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card11"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards12"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card12"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card12"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards13"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card13"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card13"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards14"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card14"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card14"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards15"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card15"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card15"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards16"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card16"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card16"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards17"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card17"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card17"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards18"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card18"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card18"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards19"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card19"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card19"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards20"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card20"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card20"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards21"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card21"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card21"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards22"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card22"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card22"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards23"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card23"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card23"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards24"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card24"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card24"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/card_back"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/linearLayout_cards25"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@id/linearLayout_points"
+        android:layout_marginLeft="7dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView android:id="@+id/imgView_opponent_card25"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/card_back"/>
+
+        <ImageView android:id="@+id/imgView_player_card25"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
