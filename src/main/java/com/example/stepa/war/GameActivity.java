@@ -19,9 +19,9 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        clearCard(true); clearCard(false);
+        opponentCard = generateCard(false);
+        playerCard = generateCard(true);
         opponentPoints = 26; playerPoints = 26;
-        opponentCard = generateCard();
 
         startInitElements();
         updateState();
@@ -51,7 +51,7 @@ public class GameActivity extends Activity {
                 onClickOnOpenedCard(imgView);
             }
         });
-        playerCard = generateCard();
+        playerCard = generateCard(false);
 
         if(!opponentCard.isEqual(playerCard)) {
             if (opponentCard.isBetterThan(playerCard)) {
@@ -111,8 +111,8 @@ public class GameActivity extends Activity {
     }
 
     private void onClickOnOpenedCard(final ImageView imgView){
-        clearCard(false);
-        opponentCard = generateCard();
+        playerCard = generateCard(true);
+        opponentCard = generateCard(false);
 
         imgView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -123,19 +123,13 @@ public class GameActivity extends Activity {
         updateState();
     }
 
-    private Card generateCard(){
+    private Card generateCard(boolean isClear){
+        if(isClear)
+            return new Card(true);
+
         int randomPriority = new Random().nextInt(13);
         int randomSuit = new Random().nextInt(4);
         return new Card(randomPriority, randomSuit);
-    }
-
-    private void clearCard(boolean isOpponent){
-        if(isOpponent){
-            opponentCard = new Card(true);
-        }
-        else{
-            playerCard = new Card(true);
-        }
     }
 
     private void updateState(){
