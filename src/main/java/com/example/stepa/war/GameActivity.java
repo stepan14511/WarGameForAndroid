@@ -14,8 +14,8 @@ import java.util.Random;
 
 public class GameActivity extends Activity {
     private Card opponentCard = new Card(true), playerCard = new Card(true);
-    private int opponentPoints, playerPoints;
     private Deck playersDeck = new Deck(), opponentsDeck = new Deck();
+    private ArrayList<Card> onDesk = new ArrayList<>();
     int currentLayer;
     int[][] listOfCardsLayers = new int[][]{
             {R.id.linearLayout_cards0, R.id.imgView_opponent_card0, R.id.imgView_player_card0},
@@ -52,7 +52,6 @@ public class GameActivity extends Activity {
 
         opponentCard = generateCard(false);
         playerCard = generateCard(true);
-        opponentPoints = 26; playerPoints = 26;
         currentLayer = 0;
 
         shuffleCardsToDecks();
@@ -133,9 +132,9 @@ public class GameActivity extends Activity {
         if(playerCard.isEqual(opponentCard)){
             imgView.setOnClickListener(null);
 
-            if(currentLayer + 2 > playerPoints)
+            if(currentLayer + 2 > playersDeck.getSizeOfTheDeck())
                 sayToPlayer(false);
-            else if(currentLayer + 2 > opponentPoints)
+            else if(currentLayer + 2 > opponentsDeck.getSizeOfTheDeck())
                 sayToPlayer(true);
             else {
                 LinearLayout linearLayout = (LinearLayout) findViewById(listOfCardsLayers[currentLayer + 1][0]);
@@ -147,9 +146,9 @@ public class GameActivity extends Activity {
 
                 currentLayer += 2;
 
-                if (currentLayer + 1 > playerPoints)
+                if (currentLayer + 1 > playersDeck.getSizeOfTheDeck())
                     sayToPlayer(false);
-                else if (currentLayer + 1 > opponentPoints)
+                else if (currentLayer + 1 > opponentsDeck.getSizeOfTheDeck())
                     sayToPlayer(true);
                 else {
                     linearLayout = (LinearLayout) findViewById(listOfCardsLayers[currentLayer][0]);
@@ -234,8 +233,8 @@ public class GameActivity extends Activity {
         ImageView imgViewPl = (ImageView) findViewById(listOfCardsLayers[currentLayer][2]);
         imgViewPl.setImageResource(playerCard.getIdOfCardImage());
         TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
-        txtViewOp.setText(("" + opponentPoints).toCharArray(), 0, ("" + opponentPoints).toCharArray().length);
+        txtViewOp.setText(("" + opponentsDeck.getSizeOfTheDeck()).toCharArray(), 0, ("" + opponentsDeck.getSizeOfTheDeck()).toCharArray().length);
         TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
-        txtViewPl.setText(("" + playerPoints).toCharArray(), 0, ("" + playerPoints).toCharArray().length);
+        txtViewPl.setText(("" + playersDeck.getSizeOfTheDeck()).toCharArray(), 0, ("" + playersDeck.getSizeOfTheDeck()).toCharArray().length);
     }
 }
