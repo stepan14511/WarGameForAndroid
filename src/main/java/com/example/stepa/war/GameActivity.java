@@ -51,6 +51,7 @@ public class GameActivity extends Activity {
         setContentView(R.layout.activity_game);
 
         opponentCard = generateCard(false);
+        onDesk.add(opponentCard);
         playerCard = generateCard(true);
         currentLayer = 0;
 
@@ -109,20 +110,25 @@ public class GameActivity extends Activity {
                 onClickOnOpenedCard(imgView);
             }
         });
-        playerCard = generateCard(false);
+        playerCard = playersDeck.getTopCard();
+        onDesk.add(playerCard);
 
         if(!opponentCard.isEqual(playerCard)) {
             if (opponentCard.isBetterThan(playerCard)) {
-                opponentPoints += currentLayer + 1;
-                playerPoints -= currentLayer + 1;
-                if(playerPoints <= 0)
-                    sayToPlayer(false);
+                for(int i = 0 ; i < onDesk.size(); i++){
+                    opponentsDeck.addCard(onDesk.get(i));
+                    onDesk = new ArrayList<>();
+                    if(playersDeck.getSizeOfTheDeck() <= 0)
+                        sayToPlayer(false);
+                }
             }
             else{
-                opponentPoints -= currentLayer + 1;
-                playerPoints += currentLayer + 1;
-                if(opponentPoints <= 0)
-                    sayToPlayer(true);
+                for(int i = 0 ; i < onDesk.size(); i++){
+                    playersDeck.addCard(onDesk.get(i));
+                    onDesk = new ArrayList<>();
+                    if(opponentsDeck.getSizeOfTheDeck() <= 0)
+                        sayToPlayer(true);
+                }
             }
         }
         updateState();
