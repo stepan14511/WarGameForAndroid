@@ -15,11 +15,9 @@ public class Deck {
     }
 
     public Card getTopCard(){
-        return deck.get(0);
-    }
-
-    public void deleteTopCard(){
+        Card topCard = deck.get(0);
         deck.remove(0);
+        return topCard;
     }
 
     public int getSizeOfTheDeck(){
