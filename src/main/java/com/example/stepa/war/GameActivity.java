@@ -9,11 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GameActivity extends Activity {
     private Card opponentCard = new Card(true), playerCard = new Card(true);
     private int opponentPoints, playerPoints;
+    private Deck playersDeck = new Deck(), opponentsDeck = new Deck();
     int currentLayer;
     int[][] listOfCardsLayers = new int[][]{
             {R.id.linearLayout_cards0, R.id.imgView_opponent_card0, R.id.imgView_player_card0},
@@ -53,6 +55,7 @@ public class GameActivity extends Activity {
         opponentPoints = 26; playerPoints = 26;
         currentLayer = 0;
 
+        shuffleCardsToDecks();
         startInitElements();
         updateState();
     }
@@ -71,6 +74,23 @@ public class GameActivity extends Activity {
         }
 
         setOnClickListeners();
+    }
+
+    private void shuffleCardsToDecks(){
+        ArrayList<Integer> cards = new ArrayList<Integer>();
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 13; j++){
+                cards.add(i * 100 + j);
+            }
+        }
+        for(int i = 0; i < 26; i++){
+            int card = new Random().nextInt(cards.size());
+            playersDeck.addCard(new Card(cards.get(card) % 100, cards.get(card) / 100));
+            cards.remove(card);
+            card = new Random().nextInt(cards.size());
+            opponentsDeck.addCard(new Card(cards.get(card) % 100, cards.get(card) / 100));
+            cards.remove(card);
+        }
     }
 
     private void setOnClickListeners(){
