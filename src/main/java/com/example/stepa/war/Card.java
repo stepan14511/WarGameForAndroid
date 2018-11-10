@@ -3,11 +3,6 @@ package com.example.stepa.war;
 public class Card {
     private int numberOfPriority, suit;
 
-    Card(){
-        this.numberOfPriority = -1;
-        this.suit = -1;
-    }
-
     Card(int numberOfPriority, int suit) throws IllegalArgumentException{
         if((numberOfPriority < 0) || (numberOfPriority > 12) || (suit < 0) || (suit > 3)){
             throw new IllegalArgumentException();
