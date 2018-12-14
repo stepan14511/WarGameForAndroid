@@ -2,13 +2,6 @@ package com.example.stepa.war;
 
 public class Card {
     private int numberOfPriority, suit;
-    private boolean isClear;
-
-    Card(boolean isClear){
-        this.isClear = isClear;
-        this.numberOfPriority = -1;
-        this.suit = -1;
-    }
 
     Card(int numberOfPriority, int suit) throws IllegalArgumentException{
         if((numberOfPriority < 0) || (numberOfPriority > 12) || (suit < 0) || (suit > 3)){
@@ -16,14 +9,9 @@ public class Card {
         }
         this.numberOfPriority = numberOfPriority;
         this.suit = suit;
-        this.isClear = false;
     }
 
     private int findIdOfCardImage(int numberOfPriority, int suit){
-        if(isClear){
-            return R.drawable.card_back;
-        }
-
         int cardImageIds[][] = new int[][]{
                 {R.drawable.card_101, R.drawable.card_102, R.drawable.card_103, R.drawable.card_104,
                 R.drawable.card_105, R.drawable.card_106, R.drawable.card_107, R.drawable.card_108,
