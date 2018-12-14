@@ -119,18 +119,22 @@ public class GameActivity extends Activity {
 
         if(!opponentCard.isEqual(playerCard)) {
             if (opponentCard.isBetterThan(playerCard)) {
-                for(int i = 0 ; i < onDesk.size(); i++){
-                    opponentsDeck.addCard(onDesk.get(i));
-                }
-                if(playersDeck.getSizeOfTheDeck() <= 0)
+                if(playersDeck.getSizeOfTheDeck() <= 0) {
+                    for (int i = 0; i < onDesk.size(); i++) {
+                        opponentsDeck.addCard(onDesk.get(i));
+                    }
+                    onDesk = new ArrayList<>();
                     sayToPlayer(false);
+                }
             }
             else{
-                for(int i = 0 ; i < onDesk.size(); i++){
-                    playersDeck.addCard(onDesk.get(i));
-                }
-                if(opponentsDeck.getSizeOfTheDeck() <= 0)
+                if(opponentsDeck.getSizeOfTheDeck() <= 0) {
+                    for(int i = 0 ; i < onDesk.size(); i++){
+                        playersDeck.addCard(onDesk.get(i));
+                    }
+                    onDesk = new ArrayList<>();
                     sayToPlayer(true);
+                }
             }
         }
         updateState();
@@ -177,16 +181,25 @@ public class GameActivity extends Activity {
                 }
             }
         }
-        else {
+        else{
+            if (opponentCard.isBetterThan(playerCard)) {
+                for (int i = 0; i < onDesk.size(); i++) {
+                    opponentsDeck.addCard(onDesk.get(i));
+                }
+            }
+            else{
+                for(int i = 0; i < onDesk.size(); i++){
+                    playersDeck.addCard(onDesk.get(i));
+                }
+            }
             currentLayer = 0;
             onDesk = new ArrayList<>();
             final ImageView imageView = (ImageView) findViewById(listOfCardsLayers[currentLayer][2]);
             imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onClickOnClosedCard(imageView);
-                }
-            });
+                    @Override
+                    public void onClick(View v) { onClickOnClosedCard(imageView);
+                    }
+                });
             for(int i = 1; i < listOfCardsLayers.length; i++){
                 LinearLayout linearLayout = (LinearLayout) findViewById(listOfCardsLayers[i][0]);
                 linearLayout.setVisibility(View.INVISIBLE);
@@ -243,8 +256,8 @@ public class GameActivity extends Activity {
         else
             imgViewPl.setImageResource(R.drawable.card_back);
         TextView txtViewOp = (TextView) findViewById(R.id.textView_opponent_points);
-        txtViewOp.setText(("" + opponentsDeck.getSizeOfTheDeck()).toCharArray(), 0, ("" + opponentsDeck.getSizeOfTheDeck()).toCharArray().length);
+        txtViewOp.setText(("" + (opponentsDeck.getSizeOfTheDeck() + (onDesk.size() + 1) / 2)).toCharArray(), 0, ("" + opponentsDeck.getSizeOfTheDeck()).toCharArray().length);
         TextView txtViewPl = (TextView) findViewById(R.id.textView_player_points);
-        txtViewPl.setText(("" + playersDeck.getSizeOfTheDeck()).toCharArray(), 0, ("" + playersDeck.getSizeOfTheDeck()).toCharArray().length);
+        txtViewPl.setText(("" + (playersDeck.getSizeOfTheDeck() + (onDesk.size() / 2))).toCharArray(), 0, ("" + playersDeck.getSizeOfTheDeck()).toCharArray().length);
     }
 }
