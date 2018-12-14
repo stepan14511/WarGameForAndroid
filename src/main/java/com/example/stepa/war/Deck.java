@@ -1,7 +1,6 @@
 package com.example.stepa.war;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Deck {
     private ArrayList<Card> deck;
