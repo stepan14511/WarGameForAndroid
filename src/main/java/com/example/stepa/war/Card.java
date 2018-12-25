@@ -1,6 +1,9 @@
 package com.example.stepa.war;
 
 public class Card {
+    public static final int OPPONENT_CARD = 0;
+    public static final int PLAYERS_CARD = 1;
+
     private int numberOfPriority, suit;
 
     Card(int numberOfPriority, int suit) throws IllegalArgumentException{
